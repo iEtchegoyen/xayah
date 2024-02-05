@@ -1,0 +1,1228 @@
+<style type="text/css">
+ 
+
+/* ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----
+
+    ୨୧   by l͟o͟v͟e͟ c͟o͟n͟u͟n͟d͟r͟u͟m͟.   ⸻   div layout base.・゜✧
+
+      › 𝘂𝗽𝗱𝗮𝘁𝗲𝗱   october 6th, 2023
+      › 𝗲𝘅𝘁𝗲𝗿𝗻𝗮𝗹 𝘀𝗼𝘂𝗿𝗰𝗲𝘀   bootstrap icons, dropbox, google fonts, necolas, josh w. comeau, 
+        meyerweb
+
+      a modified css stylesheet based on
+      › https://github.com/necolas/normalize.css
+      › https://www.joshwcomeau.com/css/custom-css-reset/
+      › https://meyerweb.com/eric/tools/css/reset/
+
+    𝗱𝗼 𝗻𝗼𝘁 𝘂𝘀𝗲 𝘁𝗵𝗶𝘀 𝗯𝗮𝘀𝗲 𝗼𝘂𝘁𝘀𝗶𝗱𝗲 𝗼𝗳 𝗹𝗼𝘃𝗲 𝗰𝗼𝗻𝘂𝗻𝗱𝗿𝘂𝗺 𝗰𝗿𝗲𝗮𝘁𝗶𝗼𝗻𝘀
+
+---- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- */
+
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,600;1,600&display=swap');
+
+@keyframes shift {
+ 0%, 100% {transform: translateY(0);}
+ 50% {transform: translateY(-7px);}
+}
+
+@keyframes blink {50%, 100% {transform: scale(2.3); opacity: 0;}}
+
+/* ----- ----- ----- ୨୧   by l͟o͟v͟e͟ c͟o͟n͟u͟n͟d͟r͟u͟m͟.  ⸺  body & html.・゜✧ ----- ----- ----- */
+
+* {
+  word-wrap: break-word;
+  font-smooth: always;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -o-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+html {
+  line-height: 1;
+  word-wrap: break-word;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+body::before, body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -9;
+}
+
+/* ----- ----- ---- ୨୧   by l͟o͟v͟e͟ c͟o͟n͟u͟n͟d͟r͟u͟m͟.  ⸺  font settings.・゜✧ ---- ----- ----- */
+
+.font {color: var(--font);}
+
+h1, h2, h3, h4, h5, h6, blockquote {
+  position: relative;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {text-align: left;}
+big {font-size: 105%;}
+small {font-size: 85%;}
+
+sub, sup {
+  vertical-align: baseline;
+  position: relative;
+  font-size: 75%;
+  line-height: 0;
+}
+
+sub {bottom: -0.25em;}
+sup {top: -0.25em;}
+b, strong {font-weight: bolder;}
+u {text-decoration: none;}
+blockquote {padding: 0;}
+
+hr {
+  box-sizing: content-box;
+  height: 0;
+  border: none;
+  overflow: visible;
+}
+
+textarea {overflow: auto;}
+details {display: block;}
+summary {display: list-item;}
+
+/* ----- ----- ---- ୨୧   by l͟o͟v͟e͟ c͟o͟n͟u͟n͟d͟r͟u͟m͟.  ⸺  link settings.・゜✧ ---- ----- ----- */
+
+a {
+  background: transparent;
+  border: none;
+  outline: none;
+  text-decoration: none !important;
+  transition: ease-in-out 0.50s all;
+}
+
+/* ----- ----- -- ୨୧   by l͟o͟v͟e͟ c͟o͟n͟u͟n͟d͟r͟u͟m͟.  ⸺  highlight settings.・゜✧ -- ----- ----- */
+
+::-moz-selection {
+  background: var(--highlight-background);
+  color: var(--highlight);
+}
+
+::selection {
+  background: var(--highlight-background);
+  color: var(--highlight);
+}
+
+/* ----- ----- -- ୨୧   by l͟o͟v͟e͟ c͟o͟n͟u͟n͟d͟r͟u͟m͟.  ⸺  scrollbar settings.・゜✧ -- ----- ----- */
+
+body::-webkit-scrollbar {display: block;}
+div::-webkit-scrollbar {display: var(--show-scrollbar);}
+
+/* ----- ----- ---- ୨୧   by l͟o͟v͟e͟ c͟o͟n͟u͟n͟d͟r͟u͟m͟.  ⸺  image settings.・゜✧ ---- ----- ----- */
+
+img {
+  vertical-align: bottom;
+  border: none;
+  outline: none;
+  filter: grayscale(var(--grayscale-images));
+  user-select: none !important;
+  user-drag: none !important;
+  -webkit-user-drag: none !important;
+  pointer-events: none !important;
+}
+
+/* ----- ----- ----- -- ୨୧   by l͟o͟v͟e͟ c͟o͟n͟u͟n͟d͟r͟u͟m͟.  ⸺  credit.・゜✧ -- ----- ----- ----- */
+
+.do-not-remove {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+#love-conundrum {
+  position: fixed !important;
+  bottom: var(--credit-bottom-spacing) !important;
+  left: var(--credit-side-spacing) !important;
+  right: var(--credit-side-spacing) !important;
+  overflow: hidden !important;
+}
+
+#love-conundrum a, #love-conundrum a:active, #love-conundrum a:link, #love-conundrum a:visited {
+  float: var(--credit-position) !important;
+  display: block !important;
+  position: relative !important;
+  width: 30px !important;
+  height: 30px !important;
+  padding: 0 !important;
+  background: var(--credit-background) !important;
+  border: none !important;
+  border-radius: 3px !important;
+  outline: none !important;
+  line-height: 1 !important;
+  letter-spacing: 0 !important;
+  word-spacing: 0 !important;
+  overflow: hidden !important;
+  transition: ease-in-out 0.5s all !important;
+  z-index: 999 !important;
+}
+
+#love-conundrum a:hover {background: var(--credit-background-hover) !important;}
+  
+#lovecoded, #lovecode {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 30px !important;
+  height: 30px !important;
+  padding: 0 !important;
+  color: var(--credit) !important;
+  text-align: center !important;
+  overflow: hidden !important;
+}
+  
+#lovecoded {
+  font: italic 600 10px/0.8 'Source Code Pro', monospace !important;
+  letter-spacing: 0.5px !important;
+  text-transform: uppercase !important;
+  transition: linear 0.5s all !important;
+  transition-delay: 0.5s !important;
+}
+  
+#love-conundrum a:hover #lovecoded {
+  top: -15px !important;
+  transition-delay: 0 !important;
+  opacity: 0 !important;
+}
+  
+#lovecode {
+  font-size: 13px !important;
+  transform: scale(0.75) !important;
+  transform-origin: center !important;
+  transition: ease-in-out 0.5s all !important;
+  transition-delay: 0 !important;
+  opacity: 0 !important;
+}
+  
+#love-conundrum a:hover #lovecode {
+  color: var(--credit-hover) !important;
+  transform: scale(1) !important;
+  transition-delay: 0.75s !important;
+  opacity: 1 !important;
+}
+
+/* ----- ----- ---- ୨୧   by l͟o͟v͟e͟ c͟o͟n͟u͟n͟d͟r͟u͟m͟.  ⸺  divs & tables.・゜✧ ---- ----- ----- */
+
+article, footer, main, nav, section {display: block;}
+.fix {box-sizing: border-box;}
+.left {float: left;}
+.right {float: right;}
+#music, #music audio::-webkit-media-controls-panel {background: var(--music) !important;}
+
+.scroll {
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+[hidden] {display: none;}
+
+/* ----- ----- ----- ୨୧   by l͟o͟v͟e͟ c͟o͟n͟u͟n͟d͟r͟u͟m͟.  ⸺  hide codes.・゜✧ ----- ----- ----- */
+
+.blacktext12, .btext, .clearfix, .contactTable, .extendedNetwork, #footerWarpper, .friendsComments, .friendSpace, #Groups, .interestsAndDetails, .latestBlogEntry, .lightbluetext8, .mslogo, .nametext, .orangetext15, .profileInfo, .redbtext, .userAlbums, .userProfileCompany, .userProfileDetail, .userProfileSchool, .userProfileURL, .whitetext12 {display: none !important;}
+
+table, td, tfooter, thead, tr {background: transparent;}
+
+ 
+
+:root {
+  --background: #FFFFF;
+  --background-image: url('#');
+
+  --font: #9f9f9f;
+  --h1: #BBAB8C;
+  --h1-shadow: #BBAB8C;
+  --h2: #000;
+  --h2-background: rgba(255 219 170 / 50%);
+  --h2-border: #FFDBAA;
+  --bold: #F8CBA6;
+  --italic: #696969;
+  --strike: #691d42;
+  --underline: inherit;
+  --underline-border: #691d42;
+  --hr: #983866;
+  --blockquote: inherit;
+  --blockquote-border: #983866;
+
+  --link: #FFDBAA;
+  --link-hover: #696969;
+
+  --highlight: #ffffff;
+  --highlight-background: #FFDBAA;
+
+  /* -- scrollbar is hidden for this layout! -- */
+
+  /* -- change 100% to 0% for colored images. -- */
+  --grayscale-images: 100%;
+
+  --page-border: #F1C376;
+  --music: #F1C376;
+  --decal-top-spacing: 20px;
+  --decal-left-spacing: 45px;
+  --decal-size: 250px;
+  --decal: rgba(255 219 170 / 50%);
+  --decal-border: #F8CBA6;
+  --initial: #FFDBAA;
+  --title: #FFDBAA;
+
+  --div-background-one: rgba(255  255  255 / 50%);
+  --div-background-two: #f7f7f7;
+  --div-border-one: #f1f1f1;
+  --div-border-two: #f1f1f1;
+  --div-accent: #FFDBAA;
+  --div-gradient: #FFDBAA;
+  --navigation: #FFDBAA;
+  --navigation-background: #FFDBAA;
+  --navigation-border: #FFDBAA;
+  --navigation-hover: #ffffff;
+  --navigation-background-hover: #FFDBAA;
+  --navigation-border-hover: #ffffff;
+  --tab-menu: #FFDBAA;
+  --tab-buttons: #fff;
+  --current-tab: #BBAB8C;
+  /* -- 20px by 20px. -- */
+  --instagram-icon: url('https://i.ibb.co/48cwXzf/xi6.png');
+  --bank-background: #fff;
+  --bank-symbols: #ffffff;
+  --date-buttons: #ffffff;
+  --date-buttons-background: #FFDBAA;
+
+  --credit-position: right;
+  --credit-bottom-spacing: 25px;
+  --credit-side-spacing: 15px;
+  --credit: #ffffff;
+  --credit-hover: #ffffff;
+  --credit-background: #FFDBAA;
+  --credit-background-hover: #7BD3EA;
+}
+
+/* ----- ----- - ୨୧   by l͟o͟v͟e͟ c͟o͟n͟u͟n͟d͟r͟u͟m͟.  ⸺  end layout variables.・゜✧ - ----- ----- */
+
+<link href="https://fonts.googleapis.com/css?family=ABeeZee:400,400italic|Lato:400,400italic,700,700italic" rel="stylesheet">
+
+</style>
+
+<div id="page-border">
+  <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path></svg><svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path></svg>
+</div>
+
+<div id="music">
+  <audio autoplay loop controls controlsList="nodownload">
+    <source src="" type="audio/mpeg">
+  </audio>
+</div>
+
+<!----- ----- - ୨୧   coded by l͟o͟v͟e͟ c͟o͟n͟u͟n͟d͟r͟u͟m͟.   ⸻   do not remove.・゜✧ - ----- ----->
+<div id="love-conundrum" class="do-not-remove"><a href="https://xat.me/revendreth"><div id="lovecoded">Lo<br>ve</div><div id="lovecode"><span class="bi bi-code-slash"></span></div></a></div>
+<!----- ----- - ୨୧   coded by l͟o͟v͟e͟ c͟o͟n͟u͟n͟d͟r͟u͟m͟.   ⸻   do not remove.・゜✧ - ----- ----->
+
+<div id="decal">
+  <!----- if you want to change your decal, browse here: https://icons.getbootstrap.com/ and replace "snow2" with whatever icon you want. do not remove the "bi bi-"! ----->
+  <span class="bi bi-lightning-fill"></span>
+</div>
+
+<div id="navigation">
+  <!----- you can have as many links as you want here. the container will resize! ----->
+  <a href="https://xat.me/Revendreth" title="Fucker">01</a>
+  <a href="https://xat.me/Aguwu" title="Aguwu">02</a>
+  <a href="https://xat.me/somi" title="Isa">03</a>
+ 
+</div>
+
+<div id="initial">S</div>
+
+<div id="title">
+  if I could turn back time, you'd be in my arms. there's some things I can't change.
+</div>
+
+<div id="center-image">
+  <img src="https://i.ibb.co/3FrgVxv/XA1.png" alt="228px by 518px">
+</div>
+
+<div id="muse-info" class="font fix">
+  <h1>Divine Gods</h1>
+  Every year right around this time, people putting up trees and lights. And I been thinking that this don't feel right cause I'm without you. If I could make a list, you'd be the first in it. If I could make a wish, you'd show in a minute. Only if it was that way, but there's some things that I can't change.
+  <br><br>
+  <b>Name:</b> Moi <br>
+  <b>Nickname:</b> Sivori <br>
+  <b>Birthday:</b> 07/08 <br>
+  <b>Pronouns:</b> He / Him <br>
+  <b>Location:</b> Home <br>
+  <b>Occupation:</b> Full time gamer. <br>
+  <br>
+  <h2>Eternity</h2>
+  Only the truest of hearts are blessed by the divine fenghuang, a legendary phoenix who watches over the world. Her champions receive a single feather - each one containing unimaginable elemental power, granting them the means needed to protect all that is innocent and good from forces lurking in the shadows.
+  <blockquote>
+    
+  </blockquote>
+ You are one thing only. You are a Divine Being. An all-powerful Creator. You are a Deity in jeans and a t-shirt, and within you dwells the infinite wisdom of the ages and the sacred creative force of All that is, will be and ever was.
+  
+</div>
+
+<div id="tabs">
+  <!----- do not edit the settings below! ----->
+  <div id="tab-menu"></div>
+  <input type="radio" id="tab-one" name="tab" checked>
+  <label for="tab-one">Instagram</label>
+  <input type="radio" id="tab-two" name="tab">
+  <label for="tab-two">Banking</label>
+  <input type="radio" id="tab-three" name="tab">
+  <label for="tab-three">Dating App</label>
+  <!----- do not edit the settings above! ----->
+
+  <div id="tab-content">
+    <!----- instagram tab ----->
+    <div class="content fix" id="instagram">
+      <!----- first post ----->
+      <div class="ig-post">
+        <div class="ig-user">
+          Feb 7th
+          <span>The Astral Express</span>
+        </div>
+        <img src="https://i.ibb.co/FBN4s3x/xi7.png" alt="218px width, any height.">
+        <div class="ig-caption font">
+          <b>SeventhOfTheMonth</b> Went out to take some photos today... But I realized that these photos — all of them — have this weird shadow in it!
+          <b>#weird</b> <b>#photography</b> <b>#stellarshadowseeker</b>
+        </div>
+      </div>
+      <!----- second post ----->
+      <div class="ig-post">
+        <div class="ig-user">
+          Feb 10th
+          <span>SOMEWHERE</span>
+        </div>
+        <img src="https://i.ibb.co/K57mmhw/xi11.png" alt="218px width, any height.">
+        <div class="ig-caption font">
+          <b>TenthOfTheMonth</b> Stelle must be tired of my antics, but, too bad! She's stuck with me!
+          <b>#session</b> <b>#stelle</b> <b>#trailblazer</b>
+        </div>
+      </div>
+      <!----- third post ----->
+      <div class="ig-post">
+        <div class="ig-user">
+          March 7th
+          <span>location</span>
+        </div>
+        <img src="https://i.ibb.co/B30v7mW/xi8.png" alt="218px width, any height.">
+        <div class="ig-caption font">
+          <b>SeventhOfTheMonth</b> Arcane Photoshoot.
+          <b>#danheng</b> <b>#imbibitorlunae</b> <b>#nolongerexiled</b> <b>#phantyliaslayed</b>
+        </div>
+      </div>
+      <!------ fourth post ----->
+      <div class="ig-post">
+        <div class="ig-user">
+          March 7th
+          <span>Aurum Alley</span>
+        </div>
+        <img src="https://i.ibb.co/rHX18NF/xi13.png" alt="218px width, any height.">
+        <div class="ig-caption font">
+          <b>NewPhotoshoot</b> I came with R to a new photoshoot!! 
+          <b>#pqshoot</b> <b>#marriagegoals</b>
+        </div>
+      </div>
+    </div>
+
+    <!----- banking tab ----->
+    <div class="content fix" id="banking">
+      <div id="bank-welcome">
+        <span class="bi bi-credit-card-2-back-fill"></span>
+        Welcome, <b>Feb 14th!</b>
+      </div>
+      <!----- checking and savings ----->
+      <div id="accounts">
+        <div id="checking">
+          $503,230 
+          <div class="bi bi-chevron-right"></div>
+        </div>
+        <div id="savings">
+          $12,421 
+          <div class="bi bi-chevron-right"></div>
+        </div>
+      </div>
+      <!----- income and spending ----->
+      <h2>Invoices</h2>
+      <div id="invoices">
+        <div id="income" class="font">
+          +$12,403 
+        </div>
+        <div id="spending" class="font">
+          -$711,791 
+        </div>
+      </div>
+      <h2>Recent Transactions</h2>
+      <!----- if you want to change the transaction icons, browse here: https://icons.getbootstrap.com/ and replace "cup-straw", "flower1", and "book-half" with whatever icon you want. do not remove the "bi bi-"! ----->
+      <div class="transaction font">
+        <span class="bi bi-cup-straw"></span>
+        $3,600
+        <b>Medusa's Bar</b>
+      </div>
+      <div class="transaction font">
+        <span class="bi bi-capsule"></span>
+        $25,000 
+        <b>Panacea</b>
+      </div>
+      <div class="transaction font">
+        <span class="bi bi-gem"></span>
+        $1,500 
+        <b>Live Wire</b>
+      </div>
+    </div>
+
+    <!----- dating tab ----->
+    <div class="content fix" id="dating">
+      <div id="partner">
+        <img src="https://i.ibb.co/8dv6c1H/xa3.png" alt="260px by 300px.">
+      </div>
+      <div id="partner-info">
+        <!----- match made ----->
+        <div id="match">
+          <span>New Follow!</span>
+          <img src="https://i.ibb.co/48cwXzf/xi6.png" alt="90px by 90px." id="love-one">
+          <img src="https://i.ibb.co/3fkPK0T/lol8.png" alt="90px by 90px." id="love-two">
+          <div id="match-confirm" class="font">
+            You and <b>Evelynn</b> are now friends!
+            <div id="match-buttons">
+              <button>Message</button>
+              <button>Feed</button>
+            </div>
+          </div>
+        </div>
+
+        <!----- partner paragraph ----->
+        <div id="lover" class="font fix">
+          <h2>R's letter</h2>
+          Every year right around this time, people putting up trees and lights. And I been thinking that this don't feel right cause I'm without you. If I could make a list, you'd be the first in it. If I could make a wish, you'd show in a minute. Only if it was that way, but there's some things that I can't change.
+          <br><br>
+          Today I have seen
+the charm, the beauty, the unfathomable grace of the face
+that I was looking for
+
+Today I have found you
+and those who laughed
+and scorned me yesterday
+are sorry that they were not looking
+as I did
+          <br><br>
+          <h2>You're so special to me</h2>
+          Your fragrant breath
+like the morning breeze
+has come to the stillness of the garden
+You have breathed new life into me
+I have become your sunshine
+and also your shadow
+
+My soul is screaming in ecstasy
+Every fiber of my being
+is in love with you
+          <br><br>
+          Your effulgence
+has lit a fire in my heart
+and you have made radiant
+for me
+the earth and sky
+
+My arrow of love
+has arrived at the target
+I am in the house of mercy
+and my heart
+is a place of prayer”
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style type="text/css">
+/* ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----
+
+      ୨୧   by l͟o͟v͟e͟ c͟o͟n͟u͟n͟d͟r͟u͟m͟.   ⸻   winter without you div layout.・゜✧
+      𝗱𝗼 𝗻𝗼𝘁 𝗲𝗱𝗶𝘁 𝘁𝗵𝗲 𝘀𝘁𝘆𝗹𝗲𝘀𝗵𝗲𝗲𝘁 𝘂𝗻𝗹𝗲𝘀𝘀 𝘆𝗼𝘂 𝗸𝗻𝗼𝘄 𝘄𝗵𝗮𝘁 𝘆𝗼𝘂'𝗿𝗲 𝗱𝗼𝗶𝗻𝗴.
+
+----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ---- */
+
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&display=swap');
+@font-face {font-family: 'Raqillas'; src: url('https://fonts.cdnfonts.com/s/107502/Raqillas-GOGdy.woff') format('woff'); font-weight: 400; font-style: normal; font-display: swap;}
+
+/* ----- ----- ---- ୨୧   by l͟o͟v͟e͟ c͟o͟n͟u͟n͟d͟r͟u͟m͟.  ⸺  body settings.・゜✧ ---- ----- ----- */
+
+body {background: var(--background) var(--background-image) fixed center repeat;}
+
+/* ----- ----- ---- ୨୧   by l͟o͟v͟e͟ c͟o͟n͟u͟n͟d͟r͟u͟m͟.  ⸺  font settings.・゜✧ ---- ----- ----- */
+
+.font {
+  font: 400 10px/1.5 'ABeeZee', sans-serif;
+  letter-spacing: 0.25px;
+  text-align: justify;
+}
+
+br + br {line-height: 1;}
+h1, h2 {text-align: center;}
+
+h1 {
+  margin: 0 0 7px;
+  padding: 0px 0 0;
+  color: var(--h1);
+  text-shadow: 0 0 5px var(--h1-shadow);
+  font: 400 24px/1 'Raqillas', sans-serif;
+}
+
+h2 {
+  margin: 0 0 10px;
+  padding: 7px 5px 5px;
+  background: var(--h2-background);
+  border: 1px solid var(--h2-border);
+  border-radius: 5px;
+  color: var(--h2);
+  font: bold 7px/1.5 'Raleway', sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+b, strong {
+  color: var(--bold);
+  font-family: 'ABeeZee', sans-serif;
+text-transform: uppercase;
+}
+
+i, em {color: var(--italic);}
+s {color: var(--strike);}
+
+u {
+  border-bottom: 1px dotted var(--underline-border);
+  color: var(--underline);
+}
+
+hr {
+  margin: 10px;
+  border-top: 1px dotted var(--hr);
+}
+
+blockquote {
+  margin: 10px;
+  padding: 0 0 0 10px;
+  border-left: 1px dotted var(--blockquote-border);
+  color: var(--blockquote);
+  font: inherit;
+}
+
+/* ----- ----- ---- ୨୧   by l͟o͟v͟e͟ c͟o͟n͟u͟n͟d͟r͟u͟m͟.  ⸺  link settings.・゜✧ ---- ----- ----- */
+
+a, a:active, a:link, a:visited {
+  color: var(--link);
+  font-family: 'Raleway', sans-serif;
+}
+
+a:hover {color: var(--link-hover);}
+
+/* ----- ----- -- ୨୧   by l͟o͟v͟e͟ c͟o͟n͟u͟n͟d͟r͟u͟m͟.  ⸺  scrollbar settings.・゜✧ -- ----- ----- */
+
+::-webkit-scrollbar {display: none !important;}
+
+/* ----- ----- ----- ୨୧   by l͟o͟v͟e͟ c͟o͟n͟u͟n͟d͟r͟u͟m͟.  ⸺  div settings.・゜✧ ----- ----- ----- */
+
+#page-border {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 9;
+}
+
+#page-border svg {
+  display: block;
+  position: absolute;
+  width: calc(100% + 1.3px);
+  fill: var(--page-border);
+  transform: rotate(180deg);
+}
+
+#page-border svg:nth-child(1) {
+  top: 0;
+  height: 55px;
+}
+
+#page-border svg:nth-child(2) {
+  bottom: 0;
+  height: 45px;
+}
+
+#music {
+  position: fixed;
+  bottom: 5px;
+  left: 5px;
+  width: 35px;
+  height: 35px;
+  background: var(--music);
+  transform: scale(0.828);
+  transform-origin: bottom left;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+#music audio {
+  position: absolute;
+  top: -9px;
+  left: -8.5px;
+}
+
+#music audio::-webkit-media-controls-panel {background: var(--music) !important;}
+
+#decal {
+  position: fixed;
+  top: calc(50% - 380px);
+  left: calc(50% - 480px);
+  margin: var(--decal-top-spacing) 0 0 var(--decal-left-spacing);
+  width: 500px;
+  height: 500px;
+  color: var(--decal);
+  -webkit-text-stroke: 1px var(--decal-border);
+  font-size: var(--decal-size);
+  line-height: 1;
+  transform: rotate(-9deg);
+}
+
+#navigation {
+  position: fixed;
+  bottom: calc(50% - 200px);
+  left: calc(50% - 330px);
+  width: 10px;
+  height: auto;
+  text-align: center;
+}
+
+#navigation a {
+  float: right;
+  display: block;
+  margin: 0 0 5px;
+  width: 10px;
+  height: 30px;
+  background: var(--navigation-background);
+  border: 1px solid var(--navigation-border);
+  border-right: 0;
+  border-radius: 3px 0 0 3px;
+  color: var(--navigation);
+  font: 400 10px/30px 'Raleway', sans-serif;
+  text-align: center;
+  overflow: hidden;
+}
+
+#navigation a:last-of-type {margin: 0;}
+
+#navigation a:hover {
+  width: 30px;
+  background: var(--navigation-background);
+  border-color: var(--navigation-border);
+  color: var(--navigation-hover);
+}
+
+#initial {
+  position: fixed;
+  top: calc(50% + 150px);
+  left: calc(50% + 260px);
+  color: var(--initial);
+  font: 400 140px/1 'Raqillas', serif;
+  text-transform: uppercase;
+  transform: rotate(5deg);
+  pointer-events: none;
+  user-select: none;
+  z-index: 8;
+}
+
+#title {
+  position: fixed;
+  top: calc(50% + 240px);
+  left: calc(50% - (640px / 2));
+  width: 800px;
+  height: 30px;
+  color: var(--title);
+  font: 600 10px/1 'ABeeZee', sans-serif;
+  letter-spacing: 2px;
+font-weight: normal!important;
+  word-spacing: 1px;
+  text-align: left;
+  text-transform: lowercase;
+}
+
+#center-image {
+  position: fixed;
+  top: calc(50% - (480px / 2));
+  left: calc(50% - (210px / 2));
+  width: 168px;
+  height: 428px;
+  padding: 15px;
+  background: var(--div-background-one);
+  backdrop-filter: blur(4px);
+  border: 1px solid var(--div-border-one);
+  overflow: hidden;
+}
+
+#center-image img {
+  width: 168px;
+  height: 428px;
+}
+
+#center-image::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 40%;
+  bottom: 15px;
+  left: 15px;
+  right: 15px;
+  background: linear-gradient(0deg, var(--div-gradient) 0%, transparent 100%);
+}
+
+#muse-info {
+  position: fixed;
+  top: calc(50% - (480px / 2));
+  left: calc(50% - 320px);
+  width: 200px;
+  height: 460px;
+  padding: 20px;
+  background: var(--div-background-one);
+  backdrop-filter: blur(4px);
+  border: 1px solid var(--div-border-one);
+  border-radius: 10px 0 0 10px;
+  overflow: auto;
+font-size: 9px;
+}
+
+#tabs {
+  position: fixed;
+  top: calc(50% - (480px / 2));
+  left: calc(50% + 110px);
+  width: 200px;
+  height: 460px;
+  background: var(--div-background-two);
+  text-align: center;
+  overflow: hidden;
+font-size: 9px;
+  border-radius: 0px 10px 10px 0px;
+
+}
+
+#tab-menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 50px;
+  background: var(--tab-menu);
+  border-radius: 0 0 50px 50px;
+  z-index: 3;
+}
+
+#tabs label {
+  display: inline-block;
+  position: relative;
+  margin: 20px 0 0 10px;
+  width: 10px;
+  height: 10px;
+  background: var(--tab-buttons);
+  border-radius: 20px;
+  color: rgba(0 0 0 / 0%) !important;
+  font-size: 1px !important;
+  transition: ease-in-out 0.5s all;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 4;
+}
+
+#tabs input {display: none;}
+#tabs label:first-of-type {margin-left: 0;}
+
+#tabs input:checked + label {
+  width: 30px;
+  background: var(--current-tab);
+}
+
+#tab-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 760px;
+  height: 550px;
+  transition: ease-in-out 0.5s all;
+  overflow: hidden;
+  z-index: 2;
+font-size: 9px;
+
+}
+
+.content {
+  position: absolute;
+  top: 0;
+  width: 200px;
+  height: 460px;
+  padding: 60px 20px 20px 20px;
+  overflow: hidden;
+font-size: 9px;
+
+}
+
+#instagram {
+  left: 0;
+  overflow: auto;
+
+}
+
+#banking {left: 260px;}
+#dating {left: 520px;}
+#tabs input#tab-one:checked ~ #tab-content {left: 0;}
+#tabs input#tab-two:checked ~ #tab-content {left: -260px;}
+#tabs input#tab-three:checked ~ #tab-content {left: -520px;}
+
+.ig-post {
+  margin: 0 0 20px;
+  width: 158px;
+  border: 1px solid var(--div-border-two);
+  border-radius: 10px;
+  overflow: hidden;
+font-size: 9px;
+}
+
+.ig-post:last-of-type {margin: 0;}
+.ig-post img {width: 218px;}
+
+.ig-user {
+  height: 20px;
+position: relative;
+margin-top: 3px;
+margin-left: 0px;
+  padding: 10px 10px 9px 10px;
+  color: var(--div-accent);
+  font: 8px/1 'ABeeZee', sans-serif;
+  letter-spacing: 1px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.ig-user span {
+  display: block;
+  margin: 2px 0px 0px 0px;
+  color: var(--font);
+  font-size: 7px;
+  font-weight: normal;
+  line-height: 1;
+  letter-spacing: 1.5px;
+}
+
+.ig-user::before {
+  content: '';
+  float: right;
+  display: block;
+  margin: 0 0 0 15px;
+  width: 20px;
+  height: 20px;
+  background: var(--instagram-icon) center no-repeat;
+  background-size: 20px 20px;
+  border-radius: 3px;
+  filter: grayscale(var(--grayscale-images));
+}
+
+.ig-caption {
+  padding: 10px;
+  text-align: left;
+font-size: 9px; 
+
+}
+
+#banking h2 {margin: 10px 0;}
+
+#bank-welcome {
+  margin: 0 0 10px;
+  color: var(--font);
+  font: 9px/1 'ABeeZee', sans-serif;
+  letter-spacing: 1.5px;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+#bank-welcome span {
+  float: left;
+  color: var(--div-accent);
+}
+
+#accounts {
+  padding: 10px;
+  background: var(--bank-background);
+  border: 1px solid var(--div-border-two);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+#checking, #savings {
+  position: relative;
+  color: var(--font);
+  font: 18px/1 'ABeeZee', sans-serif;
+  letter-spacing: -1.5px;
+  text-align: left;
+}
+
+#checking {margin: 0 0 10px;}
+#checking::before {content: 'Checking';}
+#savings::before {content: 'Savings';}
+
+#checking::before, #savings::before {
+  display: block;
+  margin: 0 0 6px;
+  color: var(--div-accent);
+  font: bold 9px/1 'ABeeZee', sans-serif;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.bi-chevron-right {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  color: var(--div-accent);
+  font-size: 15px;
+  transform: translateY(-50%);
+}
+
+#invoices {
+  position: relative;
+  min-height: 44px;
+margin-bottom: -2px;
+}
+
+#income, #spending {
+  position: absolute;
+  top: 0;
+  width: calc(50% - 24.5px);
+  height: 25px;
+  padding: 8px 10px 6px 10px;
+  border: 1px solid var(--div-border-two);
+  border-radius: 10px;
+  font-size: 9px;
+  letter-spacing: 0;
+  line-height: 1;
+  text-align: left;
+  overflow: hidden;
+text-transform: uppercase;
+}
+
+#income {left: 0;}
+#spending {right: 0;}
+#income::before {content: 'Income';}
+#spending::before {content: 'Spending';}
+
+#income::before, #spending::before {
+  display: block;
+  margin: 0 0 5px;
+  color: var(--div-accent);
+  line-height: 1;
+  letter-spacing: 0.25px;
+  font-weight: bold;
+}
+
+.transaction {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  margin: 0 0 4px;
+  height: 41px;
+  padding: 0 0 0 70px;
+  background: var(--bank-background);
+  border: 0px solid var(--div-border-two);
+  border-radius: 10px;
+  text-align: left;
+  transform: scale(1);
+  transition: ease-in-out 0.5s all;
+  overflow: hidden;
+}
+
+.transaction:last-of-type {margin: 0;}
+.transaction:hover {transform: scale(1.03);}
+
+.transaction b {
+  display: block;
+  font-size: 7px;
+  letter-spacing: 1.5px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.transaction span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 57px;
+  height: 41px;
+  background: var(--div-accent);
+  color: var(--bank-symbols);
+  font-size: 20px;
+}
+
+#partner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 220px;
+  height: 300px;
+  overflow: hidden;
+}
+
+#partner img {
+  width: 260px;
+  height: 300px;
+}
+
+#partner::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 40%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(0deg, var(--div-gradient) 0%, transparent 100%);
+}
+
+#partner-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200px;
+  height: 300px;
+  background: var(--div-background-one);
+  backdrop-filter: blur(50px);
+  border-top: var(--div-border);
+  border-radius: 50px 50px 0 0;
+  transition: ease-in-out 0.75s all;
+  overflow: hidden;
+font-size: 9px; 
+}
+
+#dating:hover #partner-info {
+  height: 550px;
+  border-radius: 0;
+}
+
+#match {
+  position: absolute;
+  top: 45px;
+  left: 0;
+  width: 200px;
+  height: 255px;
+  text-align: center;
+  transition: ease-in-out 0.75s all;
+  opacity: 1;
+  overflow: hidden;
+}
+
+#dating:hover #partner-info #match {
+  top: -250px;
+  opacity: 0;
+}
+
+#match span {
+  color: var(--div-accent);
+  font: 400 30px/1 'Raqillas', sans-serif;
+  text-align: center;
+}
+
+#match img {
+  position: absolute;
+  top: 40px;
+  width: 70px;
+  height: 70px;
+  border: 3px solid var(--div-accent);
+  border-radius: 50%;
+}
+
+#love-one {left: 40px;}
+#love-two {right: 40px;}
+
+#match-confirm {
+  position: absolute;
+  bottom: 35px;
+  left: 35px;
+  right: 35px;
+  text-align: center;
+  overflow: hidden;
+}
+
+#match-buttons button {
+  float: left;
+  display: block;
+  margin: 10px 10px 0 0;
+  width: calc(50% - 7px);
+  height: 30px;
+  border: 0;
+  border-radius: 30px;
+  color: var(--date-buttons);
+  background: var(--date-buttons-background);
+  font: bold 7px/30px 'Raleway', sans-serif;
+  letter-spacing: 1.5px;
+  text-align: center;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+#match-buttons button:nth-child(2) {margin-right: 0;}
+
+#lover {
+  position: absolute;
+  top: 154px;
+  left: 25px;
+  right: 25px;
+  height: 380px;
+  padding: 18px 10px 10px 10px;
+  background: var(--div-background-one);
+  border: 1px solid var(--div-border-one);
+  border-radius: 10px;
+  transition: ease-in-out 0.5s all;
+  opacity: 0;
+  overflow: auto;
+  z-index: 1;
+font-size: 9px; 
+margin: 0px -10px 0px -10px;
+
+}
+
+#dating:hover #lover {opacity: 1;}
+
+
+/* ----- ----- ----- ୨୧   by l͟o͟v͟e͟ c͟o͟n͟u͟n͟d͟r͟u͟m͟.  ⸺  end layout.・゜✧ ----- ----- ----- */
+</style>
